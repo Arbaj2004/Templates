@@ -10,6 +10,7 @@ struct UnionFind {
 		size.resize(n, 1);
 		for (int i = 0; i < n; i++) {
 			parent[i] = i;
+            st.insert(1);
 		}
 	}
 
@@ -20,11 +21,11 @@ struct UnionFind {
     //to get all available sizes in graph min or max
     void merge(int a,int b){
         st.erase(st.find(size[get(a)]));
-        st.erase(st.find(size[get(b)]);
+        st.erase(st.find(size[get(b)]));
         st.insert(size[get(a)]+size[get(b)]);
     }
 
-	void union(int a, int b) {
+	void Union1(int a, int b) {
 		a = get(a);
 		b = get(b);
 		if (a == b) return;
